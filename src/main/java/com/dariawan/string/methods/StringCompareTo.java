@@ -49,9 +49,9 @@ public class StringCompareTo {
         System.out.println(str1.compareTo(str3));  // 32 -> "j" is 32 characters greater than "J" 
         System.out.println(str1.compareTo(str4));  // -2 -> "j" is 2 characters lower than "l"
 
-        System.out.println("j: " + (int) 'j');
-        System.out.println("J: " + (int) 'J');
-        System.out.println("l: " + (int) 'l');
+        System.out.println("j: " + (int) 'j');  // j: 106
+        System.out.println("J: " + (int) 'J');  // J: 74
+        System.out.println("l: " + (int) 'l');  // l: 108
 
         System.out.println(str1.compareToIgnoreCase(str2));  // 0 -> both are equal
         System.out.println(str1.compareToIgnoreCase(str3));  // 0 -> equals since ignore case

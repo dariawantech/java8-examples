@@ -42,9 +42,9 @@ public class StringEndsWith {
     
     public static void main(String[] args) {
         String str = "Dariawan, Java Tutorials"; 
-        System.out.println(str.endsWith("s"));          // returns true
-        System.out.println(str.endsWith("Tutorials"));  // returns true   
-        System.out.println(str.endsWith("tutorials"));  // returns false, case sensitive
+        System.out.println(str.endsWith("s"));          // true
+        System.out.println(str.endsWith("Tutorials"));  // true   
+        System.out.println(str.endsWith("tutorials"));  // false - case sensitive
     }
 
 }

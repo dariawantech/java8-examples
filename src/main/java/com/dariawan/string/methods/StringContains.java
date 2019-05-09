@@ -42,8 +42,8 @@ public class StringContains {
     
     public static void main(String[] args) {
         String str = "Programming with Java"; 
-        System.out.println(str.contains("with"));  // returns true
-        System.out.println(str.contains("java"));  // returns false, case sensitive
-        System.out.println(str.contains("ram"));   // returns true
+        System.out.println(str.contains("with"));  // true
+        System.out.println(str.contains("java"));  // false - case sensitive
+        System.out.println(str.contains("ram"));   // true
     }
 }
