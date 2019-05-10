@@ -41,7 +41,7 @@ public class StringSplit {
         String str = "Write once run anywhere";
         String[] arr1 = str.split(" ");
         System.out.printf("Split with only regex: %s%n", Arrays.toString(arr1));
-        
+
         String[] arr2 = str.split(" ", 3);
         System.out.printf("Split with regex and limit: %s%n", Arrays.toString(arr2));
     }
