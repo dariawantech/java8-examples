@@ -38,24 +38,16 @@
  */
 package com.dariawan.string.methods;
 
-import java.io.UnsupportedEncodingException;
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
+import java.util.Locale;
 
-public class StringGetBytes {
+public class StringToLowerCase {
 
     public static void main(String[] args) {
-        byte[] arr1 = "I came".getBytes();
-        System.out.println(Arrays.toString(arr1));
+        String str1 = "DARIAWAN.COM, Java Tutorials with examples";
+        System.out.println(str1.toLowerCase());
 
-        byte[] arr2 = "I säw".getBytes(StandardCharsets.ISO_8859_1);
-        System.out.println(Arrays.toString(arr2));
-
-        try {
-            byte[] arr3 = "I conquered".getBytes("UTF-8");
-            System.out.println(Arrays.toString(arr3));
-        } catch (UnsupportedEncodingException ex) {
-            System.out.println("UnsupportedEncodingException for UTF-8");
-        }
+        String str2 = "Süleymaniye Camii, İstanbul";
+        System.out.println(str2.toLowerCase());
+        System.out.println(str2.toLowerCase(new Locale("tr", "TR")));
     }
 }
