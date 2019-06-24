@@ -36,27 +36,25 @@
  *   https://creativecommons.org/licenses/by-sa/4.0/
  *   https://creativecommons.org/licenses/by-sa/4.0/legalcode
  */
-package com.dariawan.string.methods;
+package com.dariawan.date.format;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-public class StringValueOf {
-    
+public class SimpleDateFormatExample0 {
+
     public static void main(String[] args) {
-        System.out.println(String.valueOf(false));
-        System.out.println(String.valueOf('L'));
-        System.out.println(String.valueOf(new char[] {'J', 'A', 'V', 'A'}));
-        System.out.println(String.valueOf(new char[] {'G', 'r', 'o', 'o', 'v', 'y'}, 1, 3));
-        System.out.println(String.valueOf(2.35d));
-        System.out.println(String.valueOf(3.14f));
-        System.out.println(String.valueOf(12));
-        System.out.println(String.valueOf(79l));
-
-        // Object will print based on toString()
-        Map map = new HashMap<String, String>();
-        map.put("KEY1", "Value1");
-        map.put("KEY2", "Value2");
-        System.out.println(String.valueOf(map));
+        Date date = new Date();
+        System.out.println(new SimpleDateFormat("dd/MM/yy").format(date));
+        System.out.println(new SimpleDateFormat("dd MMM yyyy").format(date));
+        System.out.println(new SimpleDateFormat("yyyy-MM-dd").format(date));
+        System.out.println(new SimpleDateFormat("dd-MM-yyyy h:mm a").format(date));
+        System.out.println(new SimpleDateFormat("dd-MM-yyyy hh:mm a, zzzz").format(date));
+        System.out.println(new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(date));
+        System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(date));
+        System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSZ").format(date));
+        System.out.println(new SimpleDateFormat("EEEE, dd MMMM yyyy HH:mm:ss.SSSZ").format(date));
+        System.out.println(new SimpleDateFormat("yyMMddHHmmssSSS").format(date));
+        
     }
 }
