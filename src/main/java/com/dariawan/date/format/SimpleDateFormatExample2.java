@@ -42,42 +42,40 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class SimpleDateFormatExample0 {
+public class SimpleDateFormatExample2 {
 
+    static void printDate(Date date) {
+        System.out.println(date);
+    }
+    
     public static void main(String[] args) {
-        Date date = new Date();
-        System.out.println(new SimpleDateFormat("dd/MM/yy").format(date));
-        System.out.println(new SimpleDateFormat("dd MMM yyyy").format(date));
-        System.out.println(new SimpleDateFormat("yyyy-MM-dd").format(date));
-        System.out.println(new SimpleDateFormat("dd-MM-yyyy h:mm a").format(date));
-        System.out.println(new SimpleDateFormat("dd-MM-yyyy hh:mm a, zzzz").format(date));
-        System.out.println(new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(date));
-        System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(date));
-        System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSZ").format(date));
-        System.out.println(new SimpleDateFormat("EEEE, dd MMMM yyyy HH:mm:ss.SSSZ").format(date));
-        System.out.println(new SimpleDateFormat("yyMMddHHmmssSSS").format(date));
-        
-        System.out.println("--- new SimpleDateFormat() ---");
-        String strDate = "25 Jun 2019 01:11:28";
-        try {            
-            date = new SimpleDateFormat("dd MMM yyyy hh:mm:ss").parse(strDate);
-        } catch (ParseException e) {
-            System.out.println("ParseException occured: " + e.getMessage());
-        }
-        
-        String pattern = "dd MMM yyyy";
-        SimpleDateFormat sdf1 = new SimpleDateFormat(pattern);
+        SimpleDateFormat formatter = new SimpleDateFormat("d-MM-yyyy HH:mm:ssZ");
+        String strDate = "28-06-2019 02:40:10+0800";
 
-        System.out.println(sdf1.format(date));
-
-        SimpleDateFormat sdf2 = new SimpleDateFormat();
-        System.out.println(sdf2.format(date));
-        System.out.println(sdf2.toPattern());
-
-        strDate = "9 Apr 1980";
-        try {            
-            date = new SimpleDateFormat("d MMM yyyy").parse(strDate);
-            System.out.println(date);  
+        try {
+            Date date = formatter.parse(strDate);
+            
+            SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss a, z");
+            SimpleDateFormat sdf2 = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss a, zzzz");
+            SimpleDateFormat sdf3 = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss aZ");
+            SimpleDateFormat sdf4 = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss aX");
+            SimpleDateFormat sdf5 = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss aXX");
+            SimpleDateFormat sdf6 = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss aXXX");
+            
+            System.out.println(sdf1.format(date));
+            System.out.println(sdf2.format(date));
+            System.out.println(sdf3.format(date));
+            System.out.println(sdf4.format(date));
+            System.out.println(sdf5.format(date));
+            System.out.println(sdf6.format(date));
+            
+            System.out.println("--- SimpleDateFormat parse ---");
+            printDate(sdf1.parse("28-06-2019 02:40:10 AM, SGT"));
+            printDate(sdf2.parse("28-06-2019 02:40:10 AM, Singapore Time"));
+            printDate(sdf3.parse("28-06-2019 02:40:10 AM+0800"));
+            printDate(sdf4.parse("28-06-2019 02:40:10 AM+08"));
+            printDate(sdf5.parse("28-06-2019 02:40:10 AM+0800"));
+            printDate(sdf6.parse("28-06-2019 02:40:10 AM+08:00"));
         } catch (ParseException e) {
             System.out.println("ParseException occured: " + e.getMessage());
         }
