@@ -69,7 +69,7 @@ public class SimpleDateFormatExample2 {
             System.out.println(sdf5.format(date));
             System.out.println(sdf6.format(date));
             
-            System.out.println("--- SimpleDateFormat parse ---");
+            System.out.println("\n--- SimpleDateFormat parse ---");
             printDate(sdf1.parse("28-06-2019 02:40:10 AM, SGT"));
             printDate(sdf2.parse("28-06-2019 02:40:10 AM, Singapore Time"));
             printDate(sdf3.parse("28-06-2019 02:40:10 AM+0800"));

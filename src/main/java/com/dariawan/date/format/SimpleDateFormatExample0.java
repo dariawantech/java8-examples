@@ -57,7 +57,7 @@ public class SimpleDateFormatExample0 {
         System.out.println(new SimpleDateFormat("EEEE, dd MMMM yyyy HH:mm:ss.SSSZ").format(date));
         System.out.println(new SimpleDateFormat("yyMMddHHmmssSSS").format(date));
         
-        System.out.println("--- new SimpleDateFormat() ---");
+        System.out.println("\n--- new SimpleDateFormat() ---");
         String strDate = "25 Jun 2019 01:11:28";
         try {            
             date = new SimpleDateFormat("dd MMM yyyy hh:mm:ss").parse(strDate);
