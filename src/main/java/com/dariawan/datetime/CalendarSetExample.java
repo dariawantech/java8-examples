@@ -38,31 +38,40 @@
  */
 package com.dariawan.datetime;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
-public class CalendarGetSetTimeExample {
+public class CalendarSetExample {
     
     public static void main(String[] args) {       
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss zzz");
+        Calendar cal = Calendar.getInstance();
         
-        // create a calendar
-        Calendar cal1 = Calendar.getInstance();
-        // get Date from calendar using getTime
-        Date date1 = cal1.getTime();
-        System.out.println("date1: " + sdf.format(date1));
+        // Set
+        cal.set(1980, 3, 18);
+        System.out.println("Calendar's date/time: " + cal.getTime());
+        System.out.println("Calendar's date  : " + cal.get(Calendar.DAY_OF_MONTH));
+        System.out.println("Calendar's month : " + cal.get(Calendar.MONTH));
+        System.out.println("Calendar's year  : " + cal.get(Calendar.YEAR));
+        System.out.println();
         
-        try {
-            Date date2 = sdf.parse("09-04-1980 02:40:10 SGT");
-            System.out.println("date2: " + sdf.format(date2));
-            Calendar cal2 = Calendar.getInstance();
-            // set date to calendar 2
-            cal2.setTime(date2);
-            System.out.println("Calendar's date/time: " + sdf.format(cal2.getTime()));          
-        } catch (ParseException ex) {
-            System.out.println("ParseException occured: " + ex.getMessage());
-        }        
+        cal.set(2002, 2, 22, 14, 20);
+        System.out.println("Calendar's date/time: " + cal.getTime());
+        System.out.println("Calendar's hour  : " + cal.get(Calendar.HOUR_OF_DAY));
+        System.out.println("Calendar's minute: " + cal.get(Calendar.MINUTE));
+        System.out.println();
+        
+        cal.set(1981, 6, 12, 20, 30, 40);
+        System.out.println("Calendar's date/time: " + cal.getTime());
+        System.out.println("Calendar's hour  : " + cal.get(Calendar.HOUR_OF_DAY));
+        System.out.println("Calendar's minute: " + cal.get(Calendar.MINUTE));
+        System.out.println("Calendar's second: " + cal.get(Calendar.SECOND));
+        System.out.println();
+        
+        cal.set(Calendar.YEAR, 1981);
+        cal.set(Calendar.MONTH, 3);
+        cal.set(Calendar.DATE, 11);
+        System.out.println("Calendar's date/time: " + cal.getTime());
+        System.out.println("Calendar's date  : " + cal.get(Calendar.DATE));
+        System.out.println("Calendar's month : " + cal.get(Calendar.MONTH));
+        System.out.println("Calendar's year  : " + cal.get(Calendar.YEAR));
     }
 }

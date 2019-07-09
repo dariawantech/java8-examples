@@ -43,24 +43,25 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class CalendarGetSetTimeExample {
+public class CalendarGetExample {
     
     public static void main(String[] args) {       
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss zzz");
         
-        // create a calendar
-        Calendar cal1 = Calendar.getInstance();
-        // get Date from calendar using getTime
-        Date date1 = cal1.getTime();
-        System.out.println("date1: " + sdf.format(date1));
-        
         try {
-            Date date2 = sdf.parse("09-04-1980 02:40:10 SGT");
-            System.out.println("date2: " + sdf.format(date2));
-            Calendar cal2 = Calendar.getInstance();
-            // set date to calendar 2
-            cal2.setTime(date2);
-            System.out.println("Calendar's date/time: " + sdf.format(cal2.getTime()));          
+            Date date = sdf.parse("18-04-1980 15:25:30 JST");
+            System.out.println("date: " + sdf.format(date));
+            Calendar cal = Calendar.getInstance();
+            // set date to calendar
+            cal.setTime(date);
+            System.out.println("Calendar's date/time: " + sdf.format(cal.getTime()));
+            System.out.println("Calendar's date  : " + cal.get(Calendar.DATE));
+            // Month 0 is January
+            System.out.println("Calendar's month : " + cal.get(Calendar.MONTH));
+            System.out.println("Calendar's year  : " + cal.get(Calendar.YEAR));
+            System.out.println("Calendar's hour  : " + cal.get(Calendar.HOUR));
+            System.out.println("Calendar's minute: " + cal.get(Calendar.MINUTE));
+            System.out.println("Calendar's second: " + cal.get(Calendar.SECOND));            
         } catch (ParseException ex) {
             System.out.println("ParseException occured: " + ex.getMessage());
         }        
