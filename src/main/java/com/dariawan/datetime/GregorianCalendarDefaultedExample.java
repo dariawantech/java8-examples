@@ -38,47 +38,36 @@
  */
 package com.dariawan.datetime;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
-import java.util.TimeZone;
 
-public class CalendarInitExample {
+public class GregorianCalendarDefaultedExample {
     
-    static void printCalendar(Calendar calendar, String name) {
-        SimpleDateFormat sdf = new SimpleDateFormat("EE MMM dd HH:mm:ss zzz yyyy");
-        TimeZone timeZone = calendar.getTimeZone();
-        sdf.setTimeZone(timeZone);
-
-        System.out.printf("***** %s *****\n", name);
-        System.out.printf("Time zone        : %s\n", timeZone.getID());
-        System.out.printf("default time zone: %s\n", TimeZone.getDefault().getID());
-        System.out.printf("UTC              : %s\n", sdf.format(calendar.getTime()));
-        System.out.printf("Default          : %s\n", calendar.getTime());
-        System.out.printf("First Day of Week: %s\n", calendar.getFirstDayOfWeek());
-        System.out.println();
-    }
-    
-    public static void main(String[] args) {       
-        
-        // create a calendar
+    public static void main(String[] args) {               
+        Locale locale1 = Locale.getDefault();
         Calendar cal1 = Calendar.getInstance();
-        printCalendar(cal1, "Calendar1");
-
-        // create a calendar with locale
-        Locale locale1 = Locale.FRANCE;
-        Calendar cal2 = Calendar.getInstance(locale1);
-        printCalendar(cal2, "Calendar2");
-
-        // create a calendar with timezone
-        TimeZone tz1 = TimeZone.getTimeZone("Europe/Copenhagen");
-        Calendar cal3 = Calendar.getInstance(tz1);
-        printCalendar(cal3, "Calendar3");
-
-        // create a calendar with timezone and locale
-        TimeZone tz2 = TimeZone.getTimeZone("Japan");
-        Locale locale2 = Locale.FRANCE;
-        Calendar cal4 = Calendar.getInstance(tz2, locale2);
-        printCalendar(cal4, "Calendar4");
+        System.out.println("Locale  : " + locale1);
+        System.out.println("Calendar: " + cal1.getClass().getName());
+        System.out.println("Year    : " + cal1.get(Calendar.YEAR));
+        System.out.println("Month   : " + cal1.get(Calendar.MONTH));
+        System.out.println("Date    : " + cal1.get(Calendar.DATE));
+        System.out.println();
+        
+        Locale locale2 = new Locale("ja", "JP", "JP");
+        Calendar cal2 = Calendar.getInstance(locale2);
+        System.out.println("Locale  : " + locale2);
+        System.out.println("Calendar: " + cal2.getClass().getName());
+        System.out.println("Year    : " + cal2.get(Calendar.YEAR));
+        System.out.println("Month   : " + cal2.get(Calendar.MONTH));
+        System.out.println("Date    : " + cal2.get(Calendar.DATE));
+        System.out.println();
+        
+        Locale locale3 = new Locale("th", "TH");
+        Calendar cal3 = Calendar.getInstance(locale3);
+        System.out.println("Locale  : " + locale3);
+        System.out.println("Calendar: " + cal3.getClass().getName());
+        System.out.println("Year    : " + cal3.get(Calendar.YEAR));
+        System.out.println("Month   : " + cal3.get(Calendar.MONTH));
+        System.out.println("Date    : " + cal3.get(Calendar.DATE));
     }
 }

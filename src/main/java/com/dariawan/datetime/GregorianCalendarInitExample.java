@@ -39,13 +39,13 @@
 package com.dariawan.datetime;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TimeZone;
 
-public class CalendarInitExample {
+public class GregorianCalendarInitExample {
     
-    static void printCalendar(Calendar calendar, String name) {
+    static void printCalendar(GregorianCalendar calendar, String name) {
         SimpleDateFormat sdf = new SimpleDateFormat("EE MMM dd HH:mm:ss zzz yyyy");
         TimeZone timeZone = calendar.getTimeZone();
         sdf.setTimeZone(timeZone);
@@ -61,24 +61,33 @@ public class CalendarInitExample {
     
     public static void main(String[] args) {       
         
-        // create a calendar
-        Calendar cal1 = Calendar.getInstance();
+        // create a GregorianCalendar
+        GregorianCalendar cal1 = new GregorianCalendar();
         printCalendar(cal1, "Calendar1");
 
-        // create a calendar with locale
-        Locale locale1 = Locale.FRANCE;
-        Calendar cal2 = Calendar.getInstance(locale1);
+        GregorianCalendar cal2 = new GregorianCalendar(1980, 3, 9);
         printCalendar(cal2, "Calendar2");
-
-        // create a calendar with timezone
-        TimeZone tz1 = TimeZone.getTimeZone("Europe/Copenhagen");
-        Calendar cal3 = Calendar.getInstance(tz1);
+        
+        GregorianCalendar cal3 = new GregorianCalendar(1980, 3, 9, 10, 20);
         printCalendar(cal3, "Calendar3");
+        
+        GregorianCalendar cal4 = new GregorianCalendar(1980, 3, 9, 10, 20, 30);
+        printCalendar(cal4, "Calendar4");
+        
+        // create a GregorianCalendar with locale
+        Locale locale1 = Locale.FRANCE;
+        GregorianCalendar cal5 = new GregorianCalendar(locale1);
+        printCalendar(cal5, "Calendar5");
 
-        // create a calendar with timezone and locale
+        // create a GregorianCalendar with timezone
+        TimeZone tz1 = TimeZone.getTimeZone("Europe/Copenhagen");
+        GregorianCalendar cal6 = new GregorianCalendar(tz1);
+        printCalendar(cal6, "Calendar6");
+
+        // create a GregorianCalendar with different timezone and locale
         TimeZone tz2 = TimeZone.getTimeZone("Japan");
         Locale locale2 = Locale.FRANCE;
-        Calendar cal4 = Calendar.getInstance(tz2, locale2);
-        printCalendar(cal4, "Calendar4");
+        GregorianCalendar cal7 = new GregorianCalendar(tz2, locale2);
+        printCalendar(cal7, "Calendar7");
     }
 }
