@@ -52,7 +52,7 @@ public class CalendarTypeMaxMinExample {
         System.out.printf("Calendar Type                  : %s\n", cal.getCalendarType());
         System.out.printf("First Day of Week              : %s\n", cal.getFirstDayOfWeek());
         System.out.printf("First Day of Week == SUNDAY    : %s\n", (cal.getFirstDayOfWeek() == Calendar.SUNDAY));
-        System.out.printf("Minimal Days in 1st Week       : %s\n", cal.getMinimalDaysInFirstWeek());
+        System.out.printf("Minimal Days in First Week     : %s\n", cal.getMinimalDaysInFirstWeek());
         System.out.printf("Weeks in Week Year             : %s\n", cal.getWeeksInWeekYear());
         System.out.printf("Week Year                      : %s\n", cal.getWeekYear());
         System.out.println();
