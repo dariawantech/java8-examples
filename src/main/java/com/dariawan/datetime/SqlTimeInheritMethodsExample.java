@@ -38,25 +38,26 @@
  */
 package com.dariawan.datetime;
 
-import java.sql.Date;
-import java.time.Instant;
-import java.time.LocalDate;
+import java.sql.Time;
 
-public class SqlDateMethodsExample {
+public class SqlTimeInheritMethodsExample {
     
     public static void main(String[] args) {
         long now = System.currentTimeMillis();
-        Date sqlDate = new Date(now);
-        // implicitely call sqlDate.toString()
-        System.out.println("SqlDate  : " + sqlDate);
+        Time sqlTime1 = new Time(now);
+        System.out.println("sqlTime1: " + sqlTime1);
+
+        Time sqlTime2 = new Time(324126010000L);
+        System.out.println("sqlTime2: " + sqlTime2);
+        System.out.println();
+
+        System.out.println("sqlTime1 after sqlTime2    : " + sqlTime1.after(sqlTime2));
+        System.out.println("sqlTime2 after sqlTime1    : " + sqlTime2.after(sqlTime1));
+
+        System.out.println("sqlTime1 before sqlTime2   : " + sqlTime1.before(sqlTime2));
+        System.out.println("sqlTime2 before sqlTime1   : " + sqlTime2.before(sqlTime1));
         
-        sqlDate.setTime(356373000000L);
-        System.out.println("SqlDate  : " + sqlDate);
-        
-        LocalDate localDt = sqlDate.toLocalDate();
-        System.out.println("LocalDate: " + localDt);
-        
-        Instant instant = sqlDate.toInstant();
-        System.out.println("Instant  : " + instant);
+        System.out.println("sqlTime1 compareTo sqlTime2: " + sqlTime1.compareTo(sqlTime2));
+        System.out.println("sqlTime2 compareTo sqlTime1: " + sqlTime2.compareTo(sqlTime1));        
     }
 }

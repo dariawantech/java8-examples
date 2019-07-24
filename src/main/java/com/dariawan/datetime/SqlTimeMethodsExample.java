@@ -38,25 +38,25 @@
  */
 package com.dariawan.datetime;
 
-import java.sql.Date;
+import java.sql.Time;
 import java.time.Instant;
-import java.time.LocalDate;
+import java.time.LocalTime;
 
-public class SqlDateMethodsExample {
+public class SqlTimeMethodsExample {
     
     public static void main(String[] args) {
         long now = System.currentTimeMillis();
-        Date sqlDate = new Date(now);
-        // implicitely call sqlDate.toString()
-        System.out.println("SqlDate  : " + sqlDate);
+        Time sqlTime = new Time(now);
+        // implicitely call sqlTime.toString()
+        System.out.println("SqlTime  : " + sqlTime);
         
-        sqlDate.setTime(356373000000L);
-        System.out.println("SqlDate  : " + sqlDate);
+        sqlTime.setTime(9920000L);
+        System.out.println("SqlTime  : " + sqlTime);
         
-        LocalDate localDt = sqlDate.toLocalDate();
-        System.out.println("LocalDate: " + localDt);
+        LocalTime localTm = sqlTime.toLocalTime();
+        System.out.println("LocalTime: " + localTm);
         
-        Instant instant = sqlDate.toInstant();
+        Instant instant = sqlTime.toInstant();
         System.out.println("Instant  : " + instant);
     }
 }
