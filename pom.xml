@@ -22,6 +22,7 @@
         <joda-time.version>2.10.2</joda-time.version>
         <spring.version>5.1.2.RELEASE</spring.version>
         <pgsql-jdbc.version>42.2.6</pgsql-jdbc.version>
+        <mysql-jdbc.version>8.0.17</mysql-jdbc.version>
         <junit.version>4.12</junit.version>
     </properties>
 
@@ -72,6 +73,13 @@
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>${pgsql-jdbc.version}</version>
+        </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql-jdbc.version}</version>
         </dependency>
 
         <dependency>

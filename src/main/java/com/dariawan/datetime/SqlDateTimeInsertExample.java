@@ -40,29 +40,36 @@ package com.dariawan.datetime;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.PreparedStatement;
 
-public class SqlTimestampQuerySwitchedExample {
+public class SqlDateTimeInsertExample {
  
     public static void main(String[] args) throws Exception {
-        // (1) connect to postgresql database
-        String url = "jdbc:postgresql://localhost/coffeeshop";
-        Class.forName("org.postgresql.Driver");
+        // (1) connect to mysql database
+        String url = "jdbc:mysql://localhost/coffeehouse";
+        Class.forName("com.mysql.cj.jdbc.Driver");
 
-        try (Connection conn = DriverManager.getConnection(url, "barista", "espresso")) {
-            // (2) create statement and query
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM test_date");
-            while ( rs.next() ) {
-                java.sql.Timestamp currSqlTS = rs.getTimestamp("curr_date");
-                java.sql.Date currSqlDate = rs.getDate("curr_timestamp");
-                java.util.Date currDate = new java.util.Date(currSqlTS.getTime());
-
-                // (3) print results
-                System.out.println("java.sql.Date     : " + currSqlDate);
-                System.out.println("java.sql.Timestamp: " + currSqlTS);
-                System.out.println("java.util.Date    : " + currDate);
+        try (Connection conn = DriverManager.getConnection(url, "barista", "cappuccino")) {
+            // (2) set java.sql.Date, Time, and Timestamp with current Date (and time)
+            java.util.Date utilDate = new java.util.Date();
+            java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+            java.sql.Time sqlTime = new java.sql.Time(utilDate.getTime());
+            java.sql.Timestamp sqlTS = new java.sql.Timestamp(utilDate.getTime());
+            // (3) insert java.sql.Date, Time and Timestamp (including objects) to DB
+            String sql = "INSERT INTO test_datetime("
+                    + "dtm_date, dtm_time, dtm_timestamp,"
+                    + "obj_date, obj_time, obj_timestamp) VALUES (?,?,?,?,?,?)";
+            try (PreparedStatement pst = conn.prepareStatement(sql)) {
+                pst.setDate(1, sqlDate);
+                pst.setTime(2, sqlTime);
+                pst.setTimestamp(3, sqlTS);
+                
+                pst.setObject(4, utilDate);
+                pst.setObject(5, utilDate);
+                pst.setObject(6, utilDate);
+                
+                // (4) execute update
+                pst.executeUpdate();
             }
         }
     }
