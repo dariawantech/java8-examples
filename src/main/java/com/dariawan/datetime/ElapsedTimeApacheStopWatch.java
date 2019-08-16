@@ -1,6 +1,6 @@
 /**
  * Code Examples in JDK 8 v1 (https://www.dariawan.com)
- * Copyright (C) ${year} Dariawan <hello@dariawan.com>
+ * Copyright (C) 2019 Dariawan <hello@dariawan.com>
  *
  * Creative Commons Attribution-ShareAlike 4.0 International License
  *
