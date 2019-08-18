@@ -38,23 +38,30 @@
  */
 package com.dariawan.datetime;
 
-import java.util.Date;
+import java.time.Clock;
 import java.time.Instant;
 
-public class UtilDateFromToIntantExample {
-    
+public class InstantInitExample {
+
     public static void main(String[] args) {
         Instant instant1 = Instant.now();
-        Date date1 = Date.from(instant1);
-        System.out.println("date: " + date1);
-        
-        Instant instant2 = date1.toInstant();
-        System.out.println("instant1 equals instant2: " + instant1.equals(instant2));
+        System.out.println("Instant1: " + instant1);
+
+        Instant instant2 = Instant.now(Clock.systemUTC());
+        System.out.println("Instant2: " + instant2);
         
         long now = System.currentTimeMillis();
-        Date date2 = new Date(now);
-        System.out.println("date2: " + date2);
-        Instant instant3 = date2.toInstant();
-        System.out.println("instant3: " + instant3);
+        Instant instant3 = Instant.ofEpochMilli(now);
+        System.out.println("Instant3: " + instant3);
+        
+        now = now/1000;
+        Instant instant4 = Instant.ofEpochSecond(now);
+        System.out.println("Instant4: " + instant4);
+        
+        Instant instant5 = Instant.ofEpochSecond(now, 345000000);
+        System.out.println("Instant5: " + instant5);
+        
+        Instant instant6 = Instant.parse("1980-04-09T10:15:30.00Z");
+        System.out.println("Instant6: " + instant6);
     }
 }
