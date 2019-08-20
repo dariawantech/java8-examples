@@ -38,20 +38,40 @@
  */
 package com.dariawan.datetime;
 
-import java.time.Instant;
-import java.time.LocalDateTime;
+import java.time.Clock;
+import java.time.LocalDate;
+import java.time.Month;
 import java.time.ZoneId;
-import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 
-public class InstantToLocalZonedDateTimeExample {
+public class LocalDateInitExample {
 
     public static void main(String[] args) {
-        Instant instant = Instant.now();
+        LocalDate localDate1 = LocalDate.now();
+        System.out.println("LocalDate1: " + localDate1);
+
+        LocalDate localDate2 = LocalDate.now(Clock.systemUTC());
+        System.out.println("LocalDate2: " + localDate2);
         
-        LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
-        System.out.println("Local DateTime from Instant: " + localDateTime);
+        LocalDate localDate3 = LocalDate.now(ZoneId.systemDefault());
+        System.out.println("LocalDate3: " + localDate3);
         
-        ZonedDateTime zonedDateTime = ZonedDateTime.ofInstant(instant, ZoneId.systemDefault());
-        System.out.println("Zoned DateTime from Instant: " + zonedDateTime);
+        LocalDate localDate4 = LocalDate.of(1980, 4, 9);
+        System.out.println("LocalDate4: " + localDate4);
+        
+        LocalDate localDate5 = LocalDate.of(1980, Month.APRIL, 9);
+        System.out.println("LocalDate4: " + localDate5);
+        
+        LocalDate localDate6 = LocalDate.ofEpochDay(3629);
+        System.out.println("LocalDate6: " + localDate6);
+        
+        LocalDate localDate7 = LocalDate.ofYearDay(1997, 127);
+        System.out.println("LocalDate7: " + localDate7);
+        
+        LocalDate localDate8 = LocalDate.parse("2018-07-24");
+        System.out.println("LocalDate8: " + localDate8);
+        
+        LocalDate localDate9 = LocalDate.parse("20180724", DateTimeFormatter.BASIC_ISO_DATE);
+        System.out.println("LocalDate9: " + localDate9);
     }
 }

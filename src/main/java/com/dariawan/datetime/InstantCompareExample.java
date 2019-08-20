@@ -40,7 +40,10 @@ public class InstantCompareExample {
     public static void main(String[] args) {
         Instant instant1 = Instant.parse("1997-05-07T15:20:45.765Z");
         Instant instant2 = Instant.parse("1997-05-07T15:20:45.785Z");
-        System.out.println("Instant1 after Instant2 : " + instant1.isAfter(instant2));
-        System.out.println("Instant1 before Instant2: " + instant1.isBefore(instant2));
+        System.out.println("Instant1 after Instant2    : " + instant1.isAfter(instant2));
+        System.out.println("Instant1 before Instant2   : " + instant1.isBefore(instant2));
+
+        System.out.println("Instant1 compareTo Instant2: " + instant1.compareTo(instant2));
+        System.out.println("Instant2 compareTo Instant1: " + instant2.compareTo(instant1));
     }
 }

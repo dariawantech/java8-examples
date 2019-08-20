@@ -38,20 +38,16 @@
  */
 package com.dariawan.datetime;
 
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
+import java.time.LocalDate;
 
-public class InstantToLocalZonedDateTimeExample {
+public class LocalDateFromToEpochExample {
 
     public static void main(String[] args) {
-        Instant instant = Instant.now();
+        LocalDate localDate = LocalDate.parse("1980-04-09");
+        System.out.println("LocalDate             : " + localDate);
+        System.out.println("LocalDate.toEpochDay(): " + localDate.toEpochDay());
         
-        LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
-        System.out.println("Local DateTime from Instant: " + localDateTime);
-        
-        ZonedDateTime zonedDateTime = ZonedDateTime.ofInstant(instant, ZoneId.systemDefault());
-        System.out.println("Zoned DateTime from Instant: " + zonedDateTime);
+        LocalDate copyLocalDate = LocalDate.ofEpochDay(localDate.toEpochDay());
+        System.out.println("Copied LocalDate      : " + copyLocalDate);
     }
 }
