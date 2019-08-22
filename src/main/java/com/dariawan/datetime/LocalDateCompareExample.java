@@ -33,20 +33,24 @@
  */
 package com.dariawan.datetime;
 
-import java.time.Instant;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
-public class InstantCompareExample {
+public class LocalDateCompareExample {
 
     public static void main(String[] args) {
-        Instant instant1 = Instant.parse("1997-05-07T15:20:45.765Z");
-        Instant instant2 = Instant.parse("1997-05-07T15:20:45.785Z");        
-        System.out.println("Instant1                   : " + instant1);
-        System.out.println("Instant2                   : " + instant2);
+        LocalDate localDate1 = LocalDate.parse("1979-12-09");
+        LocalDate localDate2 = LocalDate.parse("1980-04-09");
+        LocalDate localDate3 = LocalDate.parse("19791209", DateTimeFormatter.BASIC_ISO_DATE);
         
-        System.out.println("Instant1 after Instant2    : " + instant1.isAfter(instant2));
-        System.out.println("Instant1 before Instant2   : " + instant1.isBefore(instant2));
+        System.out.println("LocalDate1 after LocalDate2    : " + localDate1.isAfter(localDate2));
+        System.out.println("LocalDate1 before LocalDate2   : " + localDate1.isBefore(localDate2));
+        System.out.println("LocalDate1 equal LocalDate3    : " + localDate1.isEqual(localDate3));
+        System.out.println("LocalDate3 equal LocalDate3    : " + localDate2.isEqual(localDate3));
 
-        System.out.println("Instant1 compareTo Instant2: " + instant1.compareTo(instant2));
-        System.out.println("Instant2 compareTo Instant1: " + instant2.compareTo(instant1));
+        System.out.println("LocalDate1 compareTo LocalDate2: " + localDate1.compareTo(localDate2));
+        System.out.println("LocalDate2 compareTo LocalDate1: " + localDate2.compareTo(localDate1));
+        System.out.println("LocalDate1 compareTo LocalDate3: " + localDate1.compareTo(localDate3));
+        System.out.println("LocalDate3 compareTo LocalDate2: " + localDate3.compareTo(localDate2));
     }
 }

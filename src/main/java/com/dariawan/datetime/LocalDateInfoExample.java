@@ -41,7 +41,7 @@ package com.dariawan.datetime;
 import java.time.LocalDate;
 import java.time.temporal.ChronoField;
 
-public class LocalDateGetExample {
+public class LocalDateInfoExample {
     
     public static void main(String[] args) {
         LocalDate localDate = LocalDate.now();
@@ -60,5 +60,9 @@ public class LocalDateGetExample {
         
         System.out.println("Chronology   : " + localDate.getChronology());
         System.out.println("Era          : " + localDate.getEra());
+
+        System.out.println("LeapYear     : " + localDate.isLeapYear()); // for 2019
+        System.out.println("LengthOfMonth: " + localDate.lengthOfMonth()); // for AUGUST
+        System.out.println("LengthOfYear : " + localDate.lengthOfYear()); // for 2019
     }
 }

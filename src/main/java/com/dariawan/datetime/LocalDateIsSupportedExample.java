@@ -33,20 +33,23 @@
  */
 package com.dariawan.datetime;
 
-import java.time.Instant;
+import java.time.LocalDate;
+import java.time.temporal.ChronoField;
+import java.time.temporal.ChronoUnit;
 
-public class InstantCompareExample {
+public class LocalDateIsSupportedExample {
 
     public static void main(String[] args) {
-        Instant instant1 = Instant.parse("1997-05-07T15:20:45.765Z");
-        Instant instant2 = Instant.parse("1997-05-07T15:20:45.785Z");        
-        System.out.println("Instant1                   : " + instant1);
-        System.out.println("Instant2                   : " + instant2);
-        
-        System.out.println("Instant1 after Instant2    : " + instant1.isAfter(instant2));
-        System.out.println("Instant1 before Instant2   : " + instant1.isBefore(instant2));
+        LocalDate localDate = LocalDate.now();
 
-        System.out.println("Instant1 compareTo Instant2: " + instant1.compareTo(instant2));
-        System.out.println("Instant2 compareTo Instant1: " + instant2.compareTo(instant1));
+        System.out.println("*** ChronoField ***");
+        for(ChronoField chronoField : ChronoField.values()){
+            System.out.println(chronoField + " is supported:" + localDate.isSupported(chronoField));
+        }
+
+        System.out.println("\n*** ChronoUnit ***");
+        for(ChronoUnit chronoUnit : ChronoUnit.values()){
+            System.out.println(chronoUnit + " is supported:" + localDate.isSupported(chronoUnit));
+        }
     }
 }
