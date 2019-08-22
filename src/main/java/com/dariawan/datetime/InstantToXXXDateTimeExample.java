@@ -40,18 +40,26 @@ package com.dariawan.datetime;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 
-public class InstantToLocalZonedDateTimeExample {
-
+public class InstantToXXXDateTimeExample {
+    
     public static void main(String[] args) {
-        Instant instant = Instant.now();
+        Instant instant = Instant.parse("1997-05-07T10:15:30.00Z");
         
         LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
-        System.out.println("Local DateTime from Instant: " + localDateTime);
+        System.out.println("LocalDateTime : " + localDateTime);
         
-        ZonedDateTime zonedDateTime = ZonedDateTime.ofInstant(instant, ZoneId.systemDefault());
-        System.out.println("Zoned DateTime from Instant: " + zonedDateTime);
+        ZonedDateTime zonedDateTime1 = ZonedDateTime.ofInstant(instant, ZoneId.systemDefault());
+        System.out.println("ZonedDateTime1: " + zonedDateTime1);
+        
+        ZonedDateTime zonedDateTime2 = instant.atZone(ZoneId.of("Asia/Tokyo"));
+        System.out.println("ZonedDateTime2: " + zonedDateTime2);
+        
+        OffsetDateTime offsetDateTime = instant.atOffset(ZoneOffset.UTC);
+        System.out.println("OffsetDateTime: " + offsetDateTime);
     }
 }
