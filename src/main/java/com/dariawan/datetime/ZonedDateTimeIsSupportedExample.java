@@ -33,24 +33,23 @@
  */
 package com.dariawan.datetime;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.time.ZonedDateTime;
+import java.time.temporal.ChronoField;
+import java.time.temporal.ChronoUnit;
 
-public class LocalDateTimeCompareExample {
+public class ZonedDateTimeIsSupportedExample {
 
     public static void main(String[] args) {
-        LocalDateTime localDT1 = LocalDateTime.parse("1979-12-09T09:50:25");
-        LocalDateTime localDT2 = LocalDateTime.parse("1980-04-09T09:50:25");
-        LocalDateTime localDT3 = LocalDateTime.parse("19791209095025", DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
-        
-        System.out.println("LocalDateTime1 after LocalDateTime2    : " + localDT1.isAfter(localDT2));
-        System.out.println("LocalDateTime1 before LocalDateTime2   : " + localDT1.isBefore(localDT2));
-        System.out.println("LocalDateTime1 equal LocalDateTime3    : " + localDT1.isEqual(localDT3));
-        System.out.println("LocalDateTime2 equal LocalDateTime3    : " + localDT2.isEqual(localDT3));
+        ZonedDateTime zonedDT = ZonedDateTime.now();
 
-        System.out.println("LocalDateTime1 compareTo LocalDateTime2: " + localDT1.compareTo(localDT2));
-        System.out.println("LocalDateTime2 compareTo LocalDateTime1: " + localDT2.compareTo(localDT1));
-        System.out.println("LocalDateTime1 compareTo LocalDateTime3: " + localDT1.compareTo(localDT3));
-        System.out.println("LocalDateTime3 compareTo LocalDateTime2: " + localDT3.compareTo(localDT2));
+        System.out.println("*** ChronoField ***");
+        for(ChronoField chronoField : ChronoField.values()){
+            System.out.println(chronoField + " is supported:" + zonedDT.isSupported(chronoField));
+        }
+
+        System.out.println("\n*** ChronoUnit ***");
+        for(ChronoUnit chronoUnit : ChronoUnit.values()){
+            System.out.println(chronoUnit + " is supported:" + zonedDT.isSupported(chronoUnit));
+        }
     }
 }

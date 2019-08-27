@@ -33,24 +33,24 @@
  */
 package com.dariawan.datetime;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 
-public class LocalDateTimeCompareExample {
+public class ZonedDateTimeCompareExample {
 
     public static void main(String[] args) {
-        LocalDateTime localDT1 = LocalDateTime.parse("1979-12-09T09:50:25");
-        LocalDateTime localDT2 = LocalDateTime.parse("1980-04-09T09:50:25");
-        LocalDateTime localDT3 = LocalDateTime.parse("19791209095025", DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
+        ZonedDateTime zonedDT1 = ZonedDateTime.parse("1980-08-09T16:45:30+08:00[Asia/Singapore]");
+        ZonedDateTime zonedDT2 = ZonedDateTime.parse("1980-08-09T16:45:30+07:00[Asia/Jakarta]");
+        ZonedDateTime zonedDT3 = zonedDT1.withZoneSameLocal(ZoneId.of("Asia/Jakarta"));
         
-        System.out.println("LocalDateTime1 after LocalDateTime2    : " + localDT1.isAfter(localDT2));
-        System.out.println("LocalDateTime1 before LocalDateTime2   : " + localDT1.isBefore(localDT2));
-        System.out.println("LocalDateTime1 equal LocalDateTime3    : " + localDT1.isEqual(localDT3));
-        System.out.println("LocalDateTime2 equal LocalDateTime3    : " + localDT2.isEqual(localDT3));
+        System.out.println("ZonedDateTime1 after ZonedDateTime2    : " + zonedDT1.isAfter(zonedDT2));
+        System.out.println("ZonedDateTime1 before ZonedDateTime2   : " + zonedDT1.isBefore(zonedDT2));
+        System.out.println("ZonedDateTime1 equal ZonedDateTime3    : " + zonedDT1.isEqual(zonedDT3));
+        System.out.println("ZonedDateTime2 equal ZonedDateTime3    : " + zonedDT2.isEqual(zonedDT3));
 
-        System.out.println("LocalDateTime1 compareTo LocalDateTime2: " + localDT1.compareTo(localDT2));
-        System.out.println("LocalDateTime2 compareTo LocalDateTime1: " + localDT2.compareTo(localDT1));
-        System.out.println("LocalDateTime1 compareTo LocalDateTime3: " + localDT1.compareTo(localDT3));
-        System.out.println("LocalDateTime3 compareTo LocalDateTime2: " + localDT3.compareTo(localDT2));
+        System.out.println("ZonedDateTime1 compareTo ZonedDateTime2: " + zonedDT1.compareTo(zonedDT2));
+        System.out.println("ZonedDateTime2 compareTo ZonedDateTime1: " + zonedDT2.compareTo(zonedDT1));
+        System.out.println("ZonedDateTime1 compareTo ZonedDateTime3: " + zonedDT1.compareTo(zonedDT3));
+        System.out.println("ZonedDateTime3 compareTo ZonedDateTime2: " + zonedDT3.compareTo(zonedDT2));
     }
 }
