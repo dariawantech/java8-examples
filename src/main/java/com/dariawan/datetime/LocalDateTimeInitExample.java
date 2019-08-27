@@ -73,10 +73,10 @@ public class LocalDateTimeInitExample {
         System.out.println("LocalDateTime7 : " + localDT7);
         
         LocalDateTime localDT8 = LocalDateTime.of(1983, 7, 12, 20, 15, 50, 345678900);
-        System.out.println("LocalDateTime6 : " + localDT8);
+        System.out.println("LocalDateTime8 : " + localDT8);
         
         LocalDateTime localDT9 = LocalDateTime.of(1983, Month.JULY, 12, 20, 15, 50, 345678900);
-        System.out.println("LocalDateTime7 : " + localDT9);
+        System.out.println("LocalDateTime9 : " + localDT9);
         
         LocalDateTime localDT10 = LocalDateTime.of(LocalDate.now(), LocalTime.of(15, 50));
         System.out.println("LocalDateTime10: " + localDT10);
