@@ -33,28 +33,28 @@
  */
 package com.dariawan.datetime;
 
-import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
+import java.time.LocalTime;
+import java.time.OffsetTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 
-public class OffsetDateTimeCompareExample {
+public class OffsetTimeCompareExample {
 
     public static void main(String[] args) {
-        OffsetDateTime offsetDT1 = OffsetDateTime.parse("1979-12-09T09:50:25+07:00");
-        OffsetDateTime offsetDT2 = OffsetDateTime.parse("1980-04-09T09:50:25+08:00");
+        OffsetTime offsetTime1 = OffsetTime.parse("18:30:15+07:00");
+        OffsetTime offsetTime2 = OffsetTime.parse("18:30:15+08:00");
         
-        LocalDateTime localDT = LocalDateTime.parse("19791209095025", DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
-        OffsetDateTime offsetDT3 = OffsetDateTime.of(localDT, ZoneOffset.of("+07:00"));
+        LocalTime localTime = LocalTime.parse("183015", DateTimeFormatter.ofPattern("HHmmss"));
+        OffsetTime offsetTime3 = OffsetTime.of(localTime, ZoneOffset.of("+07:00"));
         
-        System.out.println("OffsetDateTime1 after OffsetDateTime2    : " + offsetDT1.isAfter(offsetDT2));
-        System.out.println("OffsetDateTime1 before OffsetDateTime2   : " + offsetDT1.isBefore(offsetDT2));
-        System.out.println("OffsetDateTime1 equal OffsetDateTime3    : " + offsetDT1.isEqual(offsetDT3));
-        System.out.println("OffsetDateTime2 equal OffsetDateTime3    : " + offsetDT2.isEqual(offsetDT3));
+        System.out.println("OffsetTime1 after OffsetTime2    : " + offsetTime1.isAfter(offsetTime2));
+        System.out.println("OffsetTime1 before OffsetTime2   : " + offsetTime1.isBefore(offsetTime2));
+        System.out.println("OffsetTime1 equal OffsetTime3    : " + offsetTime1.isEqual(offsetTime3));
+        System.out.println("OffsetTime2 equal OffsetTime3    : " + offsetTime2.isEqual(offsetTime3));
 
-        System.out.println("OffsetDateTime1 compareTo OffsetDateTime2: " + offsetDT1.compareTo(offsetDT2));
-        System.out.println("OffsetDateTime2 compareTo OffsetDateTime1: " + offsetDT2.compareTo(offsetDT1));
-        System.out.println("OffsetDateTime1 compareTo OffsetDateTime3: " + offsetDT1.compareTo(offsetDT3));
-        System.out.println("OffsetDateTime3 compareTo OffsetDateTime2: " + offsetDT3.compareTo(offsetDT2));
+        System.out.println("OffsetTime1 compareTo OffsetTime2: " + offsetTime1.compareTo(offsetTime2));
+        System.out.println("OffsetTime2 compareTo OffsetTime1: " + offsetTime2.compareTo(offsetTime1));
+        System.out.println("OffsetTime1 compareTo OffsetTime3: " + offsetTime1.compareTo(offsetTime3));
+        System.out.println("OffsetTime3 compareTo OffsetTime2: " + offsetTime3.compareTo(offsetTime2));
     }
 }
