@@ -38,15 +38,20 @@
  */
 package com.dariawan.date.format;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 public class DateTimeFormatterExample {
 
     public static void main(String[] args) {
+        LocalDateTime localDT = LocalDateTime.now();
+        System.out.println(DateTimeFormatter.ofPattern("dd/MM/yyyy kk:mm:ss").format(localDT));
+        
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss.SSSZ");
+        ZonedDateTime zdt = ZonedDateTime.from(fmt.parse("25-12-2018 18:20:45.345+0800"));
+        System.out.println(zdt);
+        
         ZonedDateTime date = ZonedDateTime.now();
         System.out.println(DateTimeFormatter.ofPattern("dd/MM/yy").format(date));
         System.out.println(DateTimeFormatter.ofPattern("dd MMM yyyy").format(date));
