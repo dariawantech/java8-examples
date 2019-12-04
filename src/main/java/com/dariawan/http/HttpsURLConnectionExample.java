@@ -47,6 +47,7 @@ public class HttpsURLConnectionExample {
 
     private HttpsURLConnection getHttpsClient(String url) throws Exception {
 
+        // Security section START
         TrustManager[] trustAllCerts = new TrustManager[]{
             new X509TrustManager() {
                 @Override
@@ -68,7 +69,8 @@ public class HttpsURLConnectionExample {
         SSLContext sc = SSLContext.getInstance("SSL");
         sc.init(null, trustAllCerts, new java.security.SecureRandom());
         HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
-
+        // Security section END
+        
         HttpsURLConnection client = (HttpsURLConnection) new URL(url).openConnection();
         //add request header
         client.setRequestProperty("User-Agent",
